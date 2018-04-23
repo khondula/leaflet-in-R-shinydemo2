@@ -26,8 +26,9 @@ ui <- fluidPage(
   absolutePanel(top = 10, right = 10, draggable = TRUE,
                 selectInput(inputId = "colors",
                             label = "Color Scheme",
-                            choices = row.names(brewer.pal.info))
-  ))
+                            choices = row.names(brewer.pal.info))),
+  a("See the code on github",
+    href="https://github.com/khondula/leaflet-in-R-shinydemo2"))
 
 # server definition
 server <- function(input, output) {
@@ -67,4 +68,4 @@ server <- function(input, output) {
   
 }
 
-shinyApp(ui, server, display.mode = "showcase")
+shinyApp(ui, server)
