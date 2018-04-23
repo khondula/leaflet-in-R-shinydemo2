@@ -7,10 +7,18 @@ library(sf)
 library(dplyr)
 
 # read in data for app
-# read in watershed boundaries for northeast region
-wbd_reg2 <- st_read("data/huc250k/") %>%
-  filter(REG == "02") %>%
-  st_transform(4326)
+
+# watershed boundaries downloaded from 
+# https://water.usgs.gov/GIS/metadata/usgswrd/XML/huc250k.xml
+# filtered to northeast region 
+# wbd_reg2 <- st_read("data/huc250k/") %>%
+#   filter(REG == "02") %>%
+#   st_transform(4326)
+
+# converted to geojson
+# st_write(wbd_reg2, "wbd_reg2.geojson")
+
+wbd_reg2 <- st_read("data/wbd_reg2.geojson")
 
 # user interface with map and color scheme widget
 ui <- fluidPage(
